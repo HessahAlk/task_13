@@ -87,12 +87,14 @@ DATABASES = {
 
 
 DATABASES = {
-    'default': 'django.db.backends.postgresql_sycopg2',
-    'NAME': 'django',
-    'USER': 'django',
-    'PASSWORD': '28716ffc04dc8e2aaab040e2a8ea5c27',
-    'HOST': 'localhost',
-    'PORT': '',
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'django',
+        'USER': 'django',
+        'PASSWORD': '28716ffc04dc8e2aaab040e2a8ea5c27',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
 }
 
 
