@@ -22,6 +22,23 @@ def restaurant_favorite(request, restaurant_id):
     }
     return JsonResponse(response, safe=False)
 
+def favorite_restaurants(request):
+    if request.user.is_anonymous:
+        return redirect('signin')
+
+        restaurants = []
+        favorite = []
+
+        for favorite in FavoriteRestaurant.objects.filter(user = request.user):
+            favorite.oppend(favorite.restaurant)
+
+        context = {
+        'restaurants': restaurants,
+        'favorites' : favorite,
+        }
+    
+    return render(request, 'favorites.html', context)
+
 def no_access(request):
     return render(request, 'no_access.html')
 
