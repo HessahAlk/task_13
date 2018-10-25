@@ -4,6 +4,11 @@ from .forms import RestaurantForm, ItemForm, SignupForm, SigninForm
 from django.contrib.auth import login, authenticate, logout
 from django.http import JsonResponse
 from django.db.models import Q
+import requests
+
+url = 'https://api.github.com/events'
+response = requests.get(url)
+print(response.json())
 
 def restaurant_favorite(request, restaurant_id):
     restaurant_obj = Restaurant.objects.get(id=restaurant_id)
